@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button);
         rollButton.setOnClickListener { rollDice() }
+
+        // Roll the dice when the user first opens the app
+        rollDice()
     }
 
     /**
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         // Display the result
         val diceImage: ImageView = findViewById(R.id.imageView)
 
+        // Determine which dice image to display based on the result
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -46,7 +50,10 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
+        // Update the dice image to match the result of the roll
         diceImage.setImageResource(drawableResource)
+
+        // Update the content description
         diceImage.contentDescription = diceRoll.toString()
     }
 }
