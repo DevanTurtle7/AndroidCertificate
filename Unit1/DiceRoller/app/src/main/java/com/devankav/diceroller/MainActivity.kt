@@ -3,6 +3,7 @@ package com.devankav.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         val diceRoll = dice.roll()
 
         // Display the result
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView)
+        diceImage.setImageResource(R.drawable.dice_2)
+
     }
 }
