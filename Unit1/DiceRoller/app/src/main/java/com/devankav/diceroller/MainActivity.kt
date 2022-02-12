@@ -6,6 +6,12 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
+class Dice(private val numSides: Int) {
+    fun roll(): Int {
+        return (1..numSides).random()
+    }
+}
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
