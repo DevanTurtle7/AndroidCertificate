@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
         lemonImage!!.setOnLongClickListener {
             // TODO: replace 'false' with a call to the function that shows the squeeze count
-            false
+            showSnackbar()
         }
     }
 
@@ -152,6 +152,24 @@ class MainActivity : AppCompatActivity() {
         // TODO: Additionally, for each state, the lemonImage should be set to the corresponding
         //  drawable from the drawable resources. The drawables have the same names as the strings
         //  but remember that they are drawables, not strings.
+        val currentImage = when(lemonadeState) {
+            SELECT -> R.drawable.lemon_tree
+            SQUEEZE -> R.drawable.lemon_squeeze
+            DRINK -> R.drawable.lemon_drink
+            RESTART -> R.drawable.lemon_restart
+            else -> R.drawable.lemon_restart
+        }
+
+        val currentText = when(lemonadeState) {
+            SELECT -> R.string.lemon_select
+            SQUEEZE -> R.string.lemon_squeeze
+            DRINK -> R.string.lemon_drink
+            RESTART -> R.string.lemon_empty_glass
+            else -> R.string.lemon_empty_glass
+        }
+
+        lemonImage!!.setImageResource(currentImage)
+        textAction.setText(currentText)
     }
 
     /**
